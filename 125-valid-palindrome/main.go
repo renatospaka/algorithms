@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"strings"
+	"unicode"
 )
 
 func main() {
@@ -12,15 +13,15 @@ func main() {
 	)
 
 	text = "A man, a plan, a canal: Panama"
-	isIt = isPalindrome(text)
+	isIt = isPalindrome2(text)
 	fmt.Printf("The phrase <%s> is palindrome: %t\n", text, isIt)
 
 	text = "Renato Tane R"
-	isIt = isPalindrome(text)
+	isIt = isPalindrome2(text)
 	fmt.Printf("The phrase <%s> is palindrome: %t\n", text, isIt)
 
 	text = ".,"
-	isIt = isPalindrome(text)
+	isIt = isPalindrome2(text)
 	fmt.Printf("The phrase <%s> is palindrome: %t\n", text, isIt)
 }
 
@@ -61,4 +62,38 @@ func isAlphanumeric(letter string) bool {
 	return (asc >= 97 && asc <= 122) ||
 	(asc >= 65 && asc <= 90) ||
 	(asc >= 48 && asc <= 57)
+}
+
+
+
+
+func isPalindrome2(text string) bool {
+	left, right := 0, len(text) - 1
+	hash := []rune(text)
+
+	for left < right {
+		leftCh := unicode.ToLower(hash[left])
+		if !isAlphanumeric2(leftCh) {
+			left++
+			continue
+		}
+		
+		rightCh := unicode.ToLower(hash[right])
+		if !isAlphanumeric2(rightCh) {
+			right--
+			continue
+		}
+
+		if leftCh != rightCh {
+			return false
+		}
+		left++
+		right--
+	}
+
+	return true
+}
+
+func isAlphanumeric2(letter rune) bool {
+	return unicode.IsLetter(letter) || unicode.IsDigit(letter)
 }
