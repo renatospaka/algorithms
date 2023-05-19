@@ -6,21 +6,21 @@ import (
 )
 
 func main() {
-	longest := longestSubstringWithoutRepeatingChar("abcabcbb")
+	longest := lengthOfLongestSubstring("abcabcbb")
 	fmt.Printf("testing 'abcabcbb': %d\n", longest)
 	
-	longest = longestSubstringWithoutRepeatingChar("bbbbb")
+	longest = lengthOfLongestSubstring("bbbbb")
 	fmt.Printf("testing 'bbbbb': %d\n", longest)
 
-	longest = longestSubstringWithoutRepeatingChar("pwwkew")
+	longest = lengthOfLongestSubstring("pwwkew")
 	fmt.Printf("testing 'pwwkew': %d\n", longest)
 
-	longest = longestSubstringWithoutRepeatingChar("")
+	longest = lengthOfLongestSubstring("")
 	fmt.Printf("testing '': %d\n", longest)
 
 }
 
-func longestSubstringWithoutRepeatingChar(text string) int {
+func lengthOfLongestSubstring(text string) int {
 	longest := 0
 	longestTemp := ""
 	for _, letter := range text {
