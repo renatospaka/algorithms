@@ -2,27 +2,19 @@ package main
 
 import "fmt"
 
-// type Node struct {
-// 	Value int
-// 	Next *Node
-// }
-
-// type ListNode struct {
-// 	Head *Node
-// }
-
-type ListNode struct {
-	Val int
-	Next *ListNode
+func main() {
+	list1 := createListNode([]int{2, 4, 3})
+	list2 := createListNode([]int{5, 6, 4})
+	output := addTwoNumbers(list1, list2)
+	fmt.Printf("The sum of %v and %v is %v\n", list1.ToArray(), list2.ToArray(), output.ToArray())
 }
 
-func main() {
-	list1 := []int{2,4,3}
-	list2 := []int{2,4,3}
-	// need to transform list1 and list2 in ListNode
-	// output := addTwoNumbers(list1, list2)
-	output := []int{7,0,8}
-	fmt.Printf("The sum of %v and %v is %v\n", list1, list2, output)
+func createListNode(numbers []int) *ListNode {
+	root := &ListNode{Val: numbers[0], Next: nil}
+	for i := 1; i < len(numbers); i++ {
+		root.Add(numbers[i])
+	}
+	return root
 }
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
@@ -62,26 +54,3 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 
 	return dummy.Next
 }
-
-
-// func (l *ListNode) insert(value int) {
-// 	list := &Node{Value: value, Next: nil}
-// 	if l.Head == nil {
-// 		l.Head = list
-// 	} else {
-// 		pointer := l.Head
-// 		for pointer.Next != nil {
-// 			pointer = pointer.Next
-// 		}
-// 		pointer.Next = list
-// 	}
-// }
-
-// func (l *ListNode) show() {
-// 	head := l.Head
-// 	for head != nil {
-// 		fmt.Printf("-> %v", head.Value)
-// 		head = head.Next
-// 	}
-// 	fmt.Println("")
-// }
