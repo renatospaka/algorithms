@@ -2,23 +2,20 @@ package main
 
 import "fmt"
 
-type TreeNode struct {
-	Val int
-	Left *TreeNode
-	Right *TreeNode
-}
-
 func main() {
 	var (
-		treeNodes []int
-		treeNode *TreeNode
-		reverse *TreeNode
+		numbers []int
+		tree    *TreeNode
+		invert  *TreeNode
 	)
 
-	treeNodes = []int{1, 2, 3, 4, 5}
-	treeNode = new(TreeNode)
-	reverse = invertTreeNode(treeNode)
-	fmt.Printf("The reverse list of %v is %v\n", treeNodes, reverse)
+	numbers = []int{1, 2, 3, 4, 5}
+	numbers = []int{1, 2, 3}
+	tree = NewTreeNode()
+	tree.Push(numbers)
+	// fmt.Printf("toArray: %v\n", tree.ToArray())
+	// // invert = invertTreeNode(tree)
+	fmt.Printf("The inverion list of %v is %v\n", numbers, invert)
 }
 
 func invertTreeNode(root *TreeNode) *TreeNode {
