@@ -3,39 +3,48 @@ package main
 import "fmt"
 
 func main() {
-	text := "babad"
-	palidrom := checkLongestPalindromic(text)
+	var (
+		text 			string
+		palidrom 	string
+	)
+
+	text = "babad"
+	palidrom = checkLongestPalindromic(text)
+	fmt.Printf("palidrom for text: %s is %s\n", text, palidrom)
+
+	text = "cbbd"
+	palidrom = checkLongestPalindromic(text)
+	fmt.Printf("palidrom for text: %s is %s\n", text, palidrom)
+
+	text = "anabanana"
+	palidrom = checkLongestPalindromic(text)
 	fmt.Printf("palidrom for text: %s is %s\n", text, palidrom)
 }
 
 func checkLongestPalindromic(text string) string {
 	palidrom := ""
-	size := 0
+	left, right, size := 0, 0, 0
 
 	for i := 0; i < len(text) - 1; i++ {
-		left, right := i, i 
-		leftS := string(text[left])
-		rightS := string(text[right])
-		fmt.Printf("i: %d, left: %d, leftS: %s, right: %d, rightS: %s\n", i, left, leftS, right, rightS)
-		for left >= 0 && right < len(text) && leftS == rightS {
+		left, right = i, i 
+		fmt.Printf("i: %d, left: %d, text[left]: %v, right: %d, text[right]: %v\n", i, left, text[left], right, text[right])
+		for left >= 0 && right < len(text) && text[left] == text[right] {
 			if (right - left + 1) > size {
 				palidrom = text[left:right + 1]
 				size = right - left + 1
-				fmt.Println("palidrom:", palidrom)
+				// fmt.Println("palidrom:", palidrom)
 			}
 			left--
 			right++
 		}
 
 		left, right = i, i + 1
-		leftS = string(text[left])
-		rightS = string(text[right])
-		fmt.Printf("i: %d, left: %d, leftS: %s, right: %d, rightS: %s\n", i, left, leftS, right, rightS)
-		for left >= 0 && right < len(text) && leftS == rightS {
+		fmt.Printf("i: %d, left: %d, text[left]: %v, right: %d, text[right]: %v\n", i, left, text[left], right, text[right])
+		for left >= 0 && right < len(text) && text[left] == text[right] {
 			if (right - left + 1) > size {
 				palidrom = text[left:right + 1]
 				size = right - left + 1
-				fmt.Println("palidrom:", palidrom)
+				// fmt.Println("palidrom:", palidrom)
 			}
 			left--
 			right++
