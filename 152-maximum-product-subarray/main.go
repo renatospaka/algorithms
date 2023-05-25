@@ -23,10 +23,17 @@ func main() {
 	numbers = []int{-3, 2, -1}
 	sum = maxProduct(numbers)
 	fmt.Printf("The maximum product subarray of %v is %d\n", numbers, sum)
+
+	numbers = []int{2}
+	sum = maxProduct(numbers)
+	fmt.Printf("The maximum product subarray of %v is %d\n", numbers, sum)
 }
 
 func maxProduct(nums []int) int {
 	max, curMax, curMin := 0, 1, 1
+	if len(nums) == 1 {
+		return nums[0]
+	}
 
 	for i := 0; i < len(nums); i++ {
 		temp := nums[i] * curMax
