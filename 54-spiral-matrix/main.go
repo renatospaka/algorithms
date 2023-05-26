@@ -5,6 +5,74 @@ import (
 	"math/rand"
 )
 
+func main() {
+	var (
+		size 						int
+		originalMatrix	[][]int
+		newMatrix  			[]int
+	)
+	
+	size = 5
+	originalMatrix = populateValues(size, false)
+	newMatrix = processSpiralMatrix(originalMatrix)
+	fmt.Printf("The spiral matrix of %v is %v\n", originalMatrix, newMatrix)
+
+	originalMatrix = [][]int{{1,2,3},{4,5,6},{7,8,9}}
+	newMatrix = processSpiralMatrix(originalMatrix)
+	fmt.Printf("The spiral matrix of %v is %v\n", originalMatrix, newMatrix)
+
+	originalMatrix = [][]int{{1,2,3,4},{5,6,7,8},{9,10,11,12}}
+	newMatrix = processSpiralMatrix(originalMatrix)
+	fmt.Printf("The spiral matrix of %v is %v\n", originalMatrix, newMatrix)
+
+	originalMatrix = [][]int{{1},{12}}
+	newMatrix = processSpiralMatrix(originalMatrix)
+	fmt.Printf("The spiral matrix of %v is %v\n", originalMatrix, newMatrix)
+}
+
+func processSpiralMatrix(matrix [][]int) []int {
+	newM := make([]int, 0)
+	left, right := 0, len(matrix[0])
+	top, bottom := 0, len(matrix)
+	// fmt.Printf("left: %d right: %d top: %d bottom: %d\n", left, right, top, bottom)
+	// fmt.Println("==========================================")
+	for left < right && top < bottom {
+		// get every elem in the top row
+		for elem := left; elem < right; elem++ {
+			newM = append(newM, matrix[top][elem])
+		}
+		top++
+		// fmt.Printf("left: %d right: %d top: %d bottom: %d\n", left, right, top, bottom)
+
+		// get every elem in the right col
+		for elem := top; elem < bottom; elem++ {
+			newM = append(newM, matrix[elem][right - 1])
+		}
+		right--
+		// fmt.Printf("left: %d right: %d top: %d bottom: %d\n", left, right, top, bottom)
+
+		// verify if the loop is out of range
+		if !(left < right && top < bottom) {
+			break
+		}
+
+		// get every elem in the bottom row
+		for elem := right - 1; elem > left; elem-- {
+			newM = append(newM, matrix[bottom - 1][elem])
+		}
+		bottom--
+		// fmt.Printf("left: %d right: %d top: %d bottom: %d\n", left, right, top, bottom)
+
+		// get every elem in the left col
+		for elem := bottom; elem >= top; elem-- {
+			newM = append(newM, matrix[elem][left])
+		}
+		left++
+		// fmt.Printf("left: %d right: %d top: %d bottom: %d\n", left, right, top, bottom)
+	}
+	return newM
+}
+
 func populateValues(size int, random bool) [][]int {
 	m := make([][]int, size)
 	n := 1;
@@ -20,54 +88,4 @@ func populateValues(size int, random bool) [][]int {
 		}
 	}
 	return m
-}
-
-func processSpiralMatrix(matrix [][]int) []int {
-	size := len(matrix)
-	newM := make([]int, 0)
-	left, right := 0, size
-	top, bottom := 0, size
-	// fmt.Printf("left: %d right: %d top: %d bottom: %d\n", left, right, top, bottom)
-	// fmt.Println("==========================================")
-	for left < right && top < bottom {
-		// get every p in the top row
-		for p := left; p < right; p++ {
-			newM = append(newM, matrix[top][p])
-		}
-		top++
-		// fmt.Printf("left: %d right: %d top: %d bottom: %d\n", left, right, top, bottom)
-
-		// get every p in the right col
-		for p := top; p < bottom; p++ {
-			newM = append(newM, matrix[p][right - 1])
-		}
-		right--
-		// fmt.Printf("left: %d right: %d top: %d bottom: %d\n", left, right, top, bottom)
-
-		// get every p in the bottom row
-		for p := right - 1; p > left; p-- {
-			newM = append(newM, matrix[bottom - 1][p])
-		}
-		bottom--
-		// fmt.Printf("left: %d right: %d top: %d bottom: %d\n", left, right, top, bottom)
-
-		// get every p in the left col
-		for p := bottom; p >= top; p-- {
-			newM = append(newM, matrix[p][left])
-		}
-		left++
-		// fmt.Printf("left: %d right: %d top: %d bottom: %d\n", left, right, top, bottom)
-	}
-	return newM
-}
-
-
-func main() {
-	size := 5
-
-	m1 := populateValues(size, false)
-	fmt.Println("Matrix 1:", m1)
-
-	newMatrix := processSpiralMatrix(m1)
-	fmt.Printf("New Matrix: %v Size: %d\n", newMatrix, len(newMatrix))
 }
