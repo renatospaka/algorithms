@@ -1,4 +1,4 @@
-## Linked List Cycle
+## 141. Linked List Cycle
 
 ### Problem
 Detect if a linked list contains a cycle. ([LeetCode problem](https://leetcode.com/problems/linked-list-cycle/))
@@ -19,5 +19,5 @@ Cycle: `-4` points back to `2`
 See `main.go` for code to create a cyclic linked list and detect the cycle.
 
 ### Resources
-- [LeetCode problem](https://leetcode.com/problems/linked-list-cycle/)
+- [LeetCode problem: ](https://leetcode.com/problems/linked-list-cycle/)
 - [Floyd's Tortoise and Hare explanation (YouTube)](https://youtu.be/gBTe7lFR3vc?si=LxM8Nv82Ja9XyO8f)
