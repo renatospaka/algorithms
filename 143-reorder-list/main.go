@@ -1,16 +1,46 @@
 package main
 
-type ListNode struct {
-	Val int
-	Next *ListNode
-}
+import (
+	"fmt"
+
+	"github.com/renatospaka/linkedlist"
+)
+
+var (
+	list    *linkedlist.ListNode
+	ordered *linkedlist.ListNode
+	numbers []int
+)
 
 func main() {
+	numbers = []int{1, 2, 3, 4}
+	test(numbers)
 
+	numbers = []int{1, 2, 3, 4, 5}
+	test(numbers)
+
+	numbers = []int{1, 2, 3, 4, 5, 8, 13, 19, 233}
+	test(numbers)
 }
 
+func test(numbers []int) {
+	list = linkedlist.NewListNode()
+	list.Push(numbers)
 
-func reorderList(head *ListNode) {
+	ordered = reorderList(list)
+	fmt.Printf("Ordered of %v is %v\n", numbers, ordered.ToArray())
+	fmt.Println("======================================")
+	fmt.Println()
+}
+
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func reorderList(head *linkedlist.ListNode) *linkedlist.ListNode {
 	// middle of the list
 	slow, fast := head, head.Next
 	for fast != nil && fast.Next != nil {
@@ -30,10 +60,11 @@ func reorderList(head *ListNode) {
 		current = next
 		reversed = reversedNext
 	}
+	return head
 }
 
-func reverse(node *ListNode) *ListNode {
-	var previous, current *ListNode = nil, node
+func reverse(node *linkedlist.ListNode) *linkedlist.ListNode {
+	var previous, current *linkedlist.ListNode = nil, node
 	for current != nil {
 		next := current.Next
 		current.Next = previous
