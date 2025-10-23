@@ -1,12 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/renatospaka/linkedlist"
+)
 
 var (
-	list                *ListNode
-	inverted            *ListNode
-	invertedRecursive   *ListNode
-	invertedWithmethods *ListNode
+	list                *linkedlist.ListNode
+	inverted            *linkedlist.ListNode
+	invertedRecursive   *linkedlist.ListNode
+	invertedWithmethods *linkedlist.ListNode
 	numbers             []int
 )
 
@@ -18,17 +21,17 @@ func main() {
 }
 
 func test(numbers []int) {
-	list = NewListNode()
+	list = linkedlist.NewListNode()
 	list.Push(numbers)
 	inverted = reverseList(list)
 	fmt.Printf("The inverse of %v is %v\n", numbers, inverted.ToArray())
 
-	list = NewListNode()
+	list = linkedlist.NewListNode()
 	list.Push(numbers)
 	invertedRecursive = reverseListRecursive(list)
 	fmt.Printf("The inverse of %v is %v using recursivity\n", numbers, invertedRecursive.ToArray())
 
-	list = NewListNode()
+	list = linkedlist.NewListNode()
 	list.Push(numbers)
 	invertedWithmethods = reverseListUsingMethods(list)
 	fmt.Printf("The inverse of %v is %v using methods\n", numbers, invertedWithmethods.ToArray())
@@ -41,8 +44,8 @@ func test(numbers []int) {
  *     Next *ListNode
  * }
  */
-func reverseList(head *ListNode) *ListNode {
-	var previous *ListNode
+func reverseList(head *linkedlist.ListNode) *linkedlist.ListNode {
+	var previous *linkedlist.ListNode
 	current := head
 
 	for current != nil {
@@ -54,7 +57,7 @@ func reverseList(head *ListNode) *ListNode {
 	return previous
 }
 
-func reverseListRecursive(head *ListNode) *ListNode {
+func reverseListRecursive(head *linkedlist.ListNode) *linkedlist.ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}
@@ -67,6 +70,6 @@ func reverseListRecursive(head *ListNode) *ListNode {
 	return newHead
 }
 
-func reverseListUsingMethods(head *ListNode) *ListNode {
+func reverseListUsingMethods(head *linkedlist.ListNode) *linkedlist.ListNode {
 	return head.ToInverse()
 }
