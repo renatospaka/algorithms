@@ -61,7 +61,7 @@ func (l *ListNode) ToArray() []int {
 // 		previous = current
 // 		current = next
 // 	}
-// 	// return previous
+// 	return previous
 // }
 
 func (l *ListNode) ToInverse() *ListNode {
