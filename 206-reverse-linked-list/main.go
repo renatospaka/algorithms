@@ -5,6 +5,7 @@ import "fmt"
 var (
 	list                *ListNode
 	inverted            *ListNode
+	invertedRecursive   *ListNode
 	invertedWithmethods *ListNode
 	numbers             []int
 )
@@ -21,6 +22,11 @@ func test(numbers []int) {
 	list.Push(numbers)
 	inverted = reverseList(list)
 	fmt.Printf("The inverse of %v is %v\n", numbers, inverted.ToArray())
+
+	list = NewListNode()
+	list.Push(numbers)
+	invertedRecursive = reverseListRecursive(list)
+	fmt.Printf("The inverse of %v is %v using recursivity\n", numbers, invertedRecursive.ToArray())
 
 	list = NewListNode()
 	list.Push(numbers)
@@ -46,6 +52,19 @@ func reverseList(head *ListNode) *ListNode {
 		current = next
 	}
 	return previous
+}
+
+func reverseListRecursive(head *ListNode) *ListNode {
+	if head == nil || head.Next == nil {
+		return head
+	}
+	newHead := head
+	if head.Next != nil {
+		newHead = reverseListRecursive(head.Next)
+		head.Next.Next = head
+	}
+	head.Next = nil
+	return newHead
 }
 
 func reverseListUsingMethods(head *ListNode) *ListNode {
