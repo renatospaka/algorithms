@@ -1,4 +1,4 @@
-module github.com/renatospaka/remove-nth-node-from-end-of-list
+module github.com/renatospaka/delete-the-middle-node-of-linked-list
 
 go 1.25.3
 
