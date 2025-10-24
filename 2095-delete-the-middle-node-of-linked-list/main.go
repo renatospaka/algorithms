@@ -7,7 +7,7 @@ import (
 )
 
 var (
-	deleted *linkedlist.ListNode
+	// deleted *linkedlist.ListNode
 	numbers []int
 )
 
@@ -23,14 +23,22 @@ func main() {
 
 	numbers = []int{8}
 	test(numbers)
+
+	numbers = []int{0, 12, 3, 7, 2, 1, 5, 0, 4, 8}
+	test(numbers)
 }
 
 func test(numbers []int) {
 	list := linkedlist.NewListNode()
 	list.Push(numbers)
-
-	deleted = deleteMiddle(list)
+	deleted := deleteMiddle(list)
 	fmt.Printf("This with the middle of %v deleted is %v\n", numbers, deleted.ToArray())
+
+	list2 := linkedlist.NewListNode()
+	list2.Push(numbers)
+	deletedFaster := deleteMiddleFaster(list2)
+	fmt.Printf("This with the middle of %v deleted is %v\n", numbers, deletedFaster.ToArray())
+
 	fmt.Println("===================================================")
 	fmt.Println()
 	fmt.Println()
@@ -57,5 +65,25 @@ func deleteMiddle(head *linkedlist.ListNode) *linkedlist.ListNode {
 		fast = fast.Next.Next
 	}
 	prev.Next = prev.Next.Next
+	return head
+}
+
+func deleteMiddleFaster(head *linkedlist.ListNode) *linkedlist.ListNode {
+	if head == nil || head.Next == nil {
+		return nil
+	}
+
+	var slow, fast *linkedlist.ListNode = nil, head
+
+	for fast != nil && fast.Next != nil {
+		fast = fast.Next.Next
+
+		if slow == nil {
+			slow = head
+		} else {
+			slow = slow.Next
+		}
+	}
+	slow.Next = slow.Next.Next
 	return head
 }
