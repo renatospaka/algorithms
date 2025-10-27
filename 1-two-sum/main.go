@@ -7,6 +7,7 @@ func main() {
 	test([]int{3, 2, 4}, 6)
 	test([]int{3, 3}, 6)
 	test([]int{5}, 5)
+	test([]int{2, 7, 11, 15}, 26)
 }
 
 func test(nums []int, target int) {
