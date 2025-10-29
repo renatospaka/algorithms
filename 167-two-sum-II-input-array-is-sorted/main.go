@@ -3,25 +3,13 @@ package main
 import "fmt"
 
 func main() {
-	var (
-		numbers []int
-		target  int
-		result  []int
-	)
+	test([]int{2, 7, 11, 15}, 9)
+	test([]int{2, 3, 4}, 6)
+	test([]int{-1, 0}, -1)
+}
 
-	numbers = []int{2, 7, 11, 15}
-	target = 9
-	result = twoSum(numbers, target)
-	fmt.Printf("The two numbers indexes of array %v that sum %d is %v\n", numbers, target, result)
-
-	numbers = []int{2, 3, 4}
-	target = 6
-	result = twoSum(numbers, target)
-	fmt.Printf("The two numbers indexes of array %v that sum %d is %v\n", numbers, target, result)
-
-	numbers = []int{-1, 0}
-	target = -1
-	result = twoSum(numbers, target)
+func test(numbers []int, target int) {
+	result := twoSum(numbers, target)
 	fmt.Printf("The two numbers indexes of array %v that sum %d is %v\n", numbers, target, result)
 }
 
