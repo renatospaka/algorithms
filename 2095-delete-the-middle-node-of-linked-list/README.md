@@ -1,16 +1,15 @@
+# 2095. Delete the Middle Node of a Linked List
 
+**Difficulty:** Medium
 
-## 2095. Delete the Middle Node of a Linked List
-
-
-### Problem
+## Problem
 
 You are given the `head` of a linked list. Delete the middle node, and return the `head` of the modified linked list.
 
 The middle node of a linked list of size $n$ is the $\lfloor n / 2 \rfloor$-th node from the start using 0-based indexing, where $\lfloor x \rfloor$ denotes the largest integer less than or equal to $x$.
 
 
-### Approach
+## Approach
 
 This solution deletes the middle node of a singly linked list in-place with $O(n)$ time and $O(1)$ space.
 
@@ -22,7 +21,7 @@ This solution deletes the middle node of a singly linked list in-place with $O(n
 - Remove the middle node by setting `prev.Next = slow.Next`.
 
 
-### Examples
+## Examples
 
 **Example 1:**
 
@@ -43,16 +42,16 @@ Input: `head = [2,1]`
 Output: `[2]`
 
 
-### Constraints
+## Constraints
 
 - The number of nodes in the list is in the range `[1, 10^5]`.
 - `1 <= Node.val <= 10^5`
 
-### Usage
+## Usage
 
 See `main.go` for code to create a linked list and delete the middle node.
 
-### Resources
+## Resources
 
 - [LeetCode problem](https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/description/)
 - [Delete the Middle Node of a Linked List explanation (YouTube)](https://www.youtube.com/watch?v=7bAzwFijLJU/)

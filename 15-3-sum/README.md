@@ -1,15 +1,14 @@
+# 15. 3Sum
 
-## 15. 3Sum
+**Difficulty:** Medium
 
-### Problem
+## Problem
 
 Given an integer array `nums`, return all the triplets `[nums[i], nums[j], nums[k]]` such that `i != j`, `i != k`, and `j != k`, and `nums[i] + nums[j] + nums[k] == 0`.
 
 You must not return duplicate triplets.
 
-([LeetCode problem](https://leetcode.com/problems/3sum/))
-
-### Approach
+## Approach
 
 Use sorting and the two-pointer technique:
 
@@ -23,7 +22,7 @@ Use sorting and the two-pointer technique:
 Time complexity: $O(n^2)$  
 Space complexity: $O(1)$ (excluding the space for the output)
 
-### Example
+## Example
 
 Input: nums = [-1,0,1,2,-1,-4]  
 Output: [[-1,-1,2],[-1,0,1]]  
@@ -38,11 +37,11 @@ Output: []
 Input: nums = [0,0,0]  
 Output: [[0,0,0]]
 
-### Usage
+## Usage
 
 See `main.go` for code to compute all unique triplets in an array that sum to zero.
 
-### Resources
+## Resources
 
 - [LeetCode problem](https://leetcode.com/problems/3sum/)
 - [3Sum explanation (YouTube)](https://youtu.be/jzZsG8n2R9A?si=ancU237cA-fG2pE7)
