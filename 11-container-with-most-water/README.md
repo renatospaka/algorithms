@@ -1,6 +1,8 @@
 # 11. Container With Most Water
 
-[LeetCode problem](https://neetcode.io/solutions/longest-consecutive-sequence)
+**Difficulty:** Medium
+
+[LeetCode problem](https://neetcode.io/solutions/problems/container-with-most-water)
 
 ## Problem
 
@@ -37,5 +39,5 @@ See `main.go` for code to compute the maximum area of water a container can stor
 
 ## Resources
 
-- [LeetCode problem](https://neetcode.io/solutions/longest-consecutive-sequence)
-- [Container With Most Water (YouTube)](https://youtu.be/YPTqKIgVk-k?si=VzEzVYZX501SVjki)
+- [LeetCode problem](https://neetcode.io/solutions/problems/container-with-most-water)
+- [Container With Most Water (YouTube)](https://youtu.be/UuiTKBwPgAo?si=nr0mYcdF6UA3uk9x)
