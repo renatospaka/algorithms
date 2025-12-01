@@ -3,11 +3,13 @@ package main
 import "fmt"
 
 func main() {
+	test([]int{100, 4, 200, 1, 3, 2})
+	test([]int{0, 3, 7, 2, 5, 8, 4, 6, 0, 1})
+	test([]int{1, 0, 1, 2})
 	test([]int{2, 20, 4, 10, 3, 4, 5})
 	test([]int{0, 3, 2, 5, 4, 6, 1, 1})
-	test([]int{100, 4, 200, 1, 3, 2})
-	test([]int{1, 0, 1, 2})
 	test([]int{0, 0})
+	test([]int{0, 0, 0})
 	test([]int{3})
 }
 
