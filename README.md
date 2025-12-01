@@ -1,6 +1,17 @@
 # Algorithms
 
+
 This repository contains a collection of algorithm solutions, each in its own directory. Each project typically includes a `main.go` file and a `README.md` with problem details and explanations.
+
+## Algorithms by Difficulty
+
+| Difficulty      | Count | % |
+|---------------|-------|----|
+| <span style="color:green;font-weight:bold">Easy</span>          | <span style="color:green;font-weight:bold">9</span>     | <span style="color:green;font-weight:bold">14%</span> |
+| <span style="color:orange;font-weight:bold">Medium</span>        | <span style="color:orange;font-weight:bold">13</span>    | <span style="color:orange;font-weight:bold">20%</span> |
+| <span style="color:red;font-weight:bold">Hard</span>          | <span style="color:red;font-weight:bold">1</span>     | <span style="color:red;font-weight:bold">2%</span>  |
+| Not Classified| 44    | 66% |
+| <b>Total     | 67    | 100%</b> |
 
 The problems are primarily suggested by [LeetCode](https://leetcode.com/), and the solutions are based on patterns and strategies from [NeetCode.io](https://neetcode.io/).
 
