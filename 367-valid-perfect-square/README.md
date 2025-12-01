@@ -1,6 +1,8 @@
-## 367. Valid Perfect Square
+# 367. Valid Perfect Square
 
-### Problem
+**Difficulty:** Easy
+
+## Problem
 
 Given a positive integer num, return true if num is a perfect square, otherwise return false.
 
@@ -8,7 +10,7 @@ A perfect square is an integer that is the square of an integer; in other words,
 
 ([LeetCode problem](https://leetcode.com/problems/valid-perfect-square/description/))
 
-### Approach
+## Approach
 
 To determine if a number is a perfect square without using built-in square root functions, use a binary search approach:
 
@@ -23,7 +25,7 @@ To determine if a number is a perfect square without using built-in square root 
 Time complexity: $O(\log n)$
 Space complexity: $O(1)$
 
-### Example
+## Example
 
 Input: num = 16
 Output: true
@@ -33,11 +35,11 @@ Input: num = 14
 Output: false
 Explanation: 14 is not a perfect square.
 
-### Usage
+## Usage
 
 See `main.go` for code to check if a number is a perfect square. Adapt the code to return a boolean as needed.
 
-### Resources
+## Resources
 
 - [LeetCode problem](https://leetcode.com/problems/valid-perfect-square/description/)
-- [Valid Perfect Square explanation (YouTube)](https://youtu.be/1pj2a5bmziY?si=YZaVZ6J9iSPdAg7p)
+- [Valid Perfect Square explanation (YouTube)](https://youtu.be/Cg_wWPHJ2Sk)

@@ -1,7 +1,8 @@
+# 263. Ugly Number
 
-## 263. Ugly Number
+**Difficulty:** Easy
 
-### Problem
+## Problem
 
 An ugly number is a positive integer whose prime factors are limited to 2, 3, and 5.
 
@@ -9,7 +10,7 @@ Given an integer n, return true if n is an ugly number.
 
 ([LeetCode problem](https://leetcode.com/problems/ugly-number/description/))
 
-### Approach
+## Approach
 
 
 This solution checks if a number is an ugly number by dividing n by 2, 3, and 5 as long as it is divisible by them, and then checks if the result is 1. The time complexity is $O(\log n)$ and space complexity is $O(1)$.
@@ -24,7 +25,7 @@ This solution checks if a number is an ugly number by dividing n by 2, 3, and 5 
 - If n becomes 1, it is an ugly number; otherwise, it is not.
 
 
-### Example
+## Example
 
 Input: n = 6
 Output: true
@@ -35,11 +36,11 @@ Output: false
 Explanation: 14 is not ugly since it includes the prime factor 7.
 
 
-### Usage
+## Usage
 
 See `main.go` for code to check if a number is an ugly number.
 
-### Resources
+## Resources
 
 - [LeetCode problem](https://leetcode.com/problems/ugly-number/description/)
 - [Ugly Number explanation (YouTube)](https://youtu.be/M0Zay1Qr9ws?si=EQ4jlCTNMzPa-xAo)

@@ -1,18 +1,15 @@
+# 264. Ugly Number II
 
-## 264. Ugly Number II
+**Difficulty:** Medium
 
-
-### Problem
+## Problem
 
 An ugly number is a positive integer whose prime factors are limited to 2, 3, and 5.
 
 Given an integer n, return the nth ugly number.
 
-([LeetCode problem](https://leetcode.com/problems/ugly-number-ii/description/))
 
-### Approach
-
-
+## Approach
 
 To find the nth ugly number, use a dynamic programming approach with three pointers, each tracking the next multiple of 2, 3, and 5. At each step, select the minimum among these, add it to the list, and advance the corresponding pointer(s).
 
@@ -30,20 +27,18 @@ Time complexity: $O(n)$
 Space complexity: $O(n)$
 
 
-
-### Example
+## Example
 
 Input: n = 10
 Output: 12
 Explanation: The sequence of ugly numbers is [1, 2, 3, 4, 5, 6, 8, 9, 10, 12]. The 10th ugly number is 12.
 
 
-
-### Usage
+## Usage
 
 See `main.go` for code to generate and print ugly numbers. Adapt the code to return the nth ugly number as needed.
 
-### Resources
+## Resources
 
 - [LeetCode problem](https://leetcode.com/problems/ugly-number-ii/description/)
 - [Ugly Number explanation (YouTube)](https://youtu.be/1pj2a5bmziY?si=YZaVZ6J9iSPdAg7p)

@@ -1,7 +1,6 @@
-
 # 271. Encode and Decode Strings
 
-[LeetCode problem](https://leetcode.com/problems/encode-and-decode-strings/description/)
+**Difficulty:** Medium
 
 ## Problem
 
@@ -39,4 +38,4 @@ See `main.go` for code to encode and decode a list of strings.
 ## Resources
 
 - [LeetCode problem](https://leetcode.com/problems/encode-and-decode-strings/description/)
-- [Encode and Decode Strings (YouTube)](https://youtu.be/YPTqKIgVk-k?si=VzEzVYZX501SVjki)
+- [Encode and Decode Strings (YouTube)](https://youtu.be/B1k_sxOSgv8)

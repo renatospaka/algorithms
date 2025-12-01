@@ -1,8 +1,6 @@
-
-
 # 560. Subarray Sum Equals K
 
-[LeetCode problem](https://leetcode.com/problems/subarray-sum-equals-k/description/)
+**Difficulty:** Medium
 
 ## Problem
 

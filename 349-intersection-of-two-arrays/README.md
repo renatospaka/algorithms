@@ -1,8 +1,6 @@
-
-
 # 349. Intersection of Two Arrays
 
-[LeetCode problem](https://leetcode.com/problems/intersection-of-two-arrays/description/)
+**Difficulty:** Easy
 
 ## Problem
 

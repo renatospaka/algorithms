@@ -1,7 +1,6 @@
-
 # 347. Top K Frequent Elements
 
-[LeetCode problem](https://leetcode.com/problems/top-k-frequent-elements/)
+**Difficulty:** Medium
 
 ## Problem
 
