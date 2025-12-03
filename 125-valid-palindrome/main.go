@@ -7,45 +7,43 @@ import (
 )
 
 func main() {
-	var (
-		text string
-		isIt bool
-	)
-
-	text = "A man, a plan, a canal: Panama"
-	isIt = isPalindrome2(text)
-	fmt.Printf("The phrase <%s> is palindrome: %t\n", text, isIt)
-
-	text = "Renato Tane R"
-	isIt = isPalindrome2(text)
-	fmt.Printf("The phrase <%s> is palindrome: %t\n", text, isIt)
-
-	text = ".,"
-	isIt = isPalindrome2(text)
-	fmt.Printf("The phrase <%s> is palindrome: %t\n", text, isIt)
+	test("A man, a plan, a canal: Panama")
+	test("race a car")
+	test("Renato Tane R")
+	test(".,")
 }
 
-func isPalindrome(text string) bool {
-	left, right := 0, len(text) - 1
+func test(s string) {
+	palindrome := isPalindrome(s)
+	fmt.Printf("The phrase <%s> is palindrome: %t", s, palindrome)
+	faster := isPalindromeFaster(s)
+	fmt.Printf(" | is palindrome (faster): %t\n", faster)
+}
+
+func isPalindrome(s string) bool {
+	if len(s) == 0 {
+		return false
+	}
+	if len(s) == 1 {
+		return true
+	}
+
+	left, right := 0, len(s)-1
 	for left < right {
-		ascL :=  text[left]
-		letterL :=  strings.ToLower(string(ascL))
-		// fmt.Printf("letterL: %s, ascL: %d, left: %d\n", letterL, ascL, left)
+		ascL := s[left]
+		letterL := strings.ToLower(string(ascL))
 		for !isAlphanumeric(letterL) && left < right {
 			left++
-			ascL =  text[left]
-			letterL =  strings.ToLower(string(ascL))
-			// fmt.Printf("letterL: %s, ascL: %d, left: %d\n", letterL, ascL, left)
+			ascL = s[left]
+			letterL = strings.ToLower(string(ascL))
 		}
 
-		ascR := text[right]
-		letterR :=  strings.ToLower(string(ascR))
-		// fmt.Printf("letterR: %s, ascR: %d, right: %d\n", letterR, ascR, right)
+		ascR := s[right]
+		letterR := strings.ToLower(string(ascR))
 		for !isAlphanumeric(letterR) && left < right {
 			right--
-			ascR = text[right]
-			letterR =  strings.ToLower(string(ascR))
-			// fmt.Printf("letterR: %s, ascR: %d, right: %d\n", letterR, ascR, right)
+			ascR = s[right]
+			letterR = strings.ToLower(string(ascR))
 		}
 
 		if letterL != letterR {
@@ -53,33 +51,30 @@ func isPalindrome(text string) bool {
 		}
 		left++
 		right--
-	} 
+	}
 	return true
 }
 
-func isAlphanumeric(letter string) bool {
-	asc := letter[0]
-	return (asc >= 97 && asc <= 122) ||
-	(asc >= 65 && asc <= 90) ||
-	(asc >= 48 && asc <= 57)
-}
+func isPalindromeFaster(s string) bool {
+	if len(s) == 0 {
+		return false
+	}
+	if len(s) == 1 {
+		return true
+	}
 
-
-
-
-func isPalindrome2(text string) bool {
-	left, right := 0, len(text) - 1
-	hash := []rune(text)
+	left, right := 0, len(s)-1
+	hash := []rune(s)
 
 	for left < right {
 		leftCh := unicode.ToLower(hash[left])
-		if !isAlphanumeric2(leftCh) {
+		if !isAlphanumericLibrary(leftCh) {
 			left++
 			continue
 		}
-		
+
 		rightCh := unicode.ToLower(hash[right])
-		if !isAlphanumeric2(rightCh) {
+		if !isAlphanumericLibrary(rightCh) {
 			right--
 			continue
 		}
@@ -94,6 +89,16 @@ func isPalindrome2(text string) bool {
 	return true
 }
 
-func isAlphanumeric2(letter rune) bool {
+func isAlphanumeric(letter string) bool {
+	asc := letter[0]
+	// 48 - 57 ==> 0 to 9
+	// 65 - 90 ==> A to Z
+	// 97 - 122 ==> a to z
+	return (asc >= 97 && asc <= 122) ||
+		(asc >= 65 && asc <= 90) ||
+		(asc >= 48 && asc <= 57)
+}
+
+func isAlphanumericLibrary(letter rune) bool {
 	return unicode.IsLetter(letter) || unicode.IsDigit(letter)
 }
