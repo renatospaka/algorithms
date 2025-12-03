@@ -13,11 +13,11 @@ func main() {
 }
 
 func test(s string) {
-	longest := checkLongestPalindromic(s)
+	longest := longestPalindrome(s)
 	fmt.Printf("longest longest for '%s' is %s\n", s, longest)
 }
 
-func checkLongestPalindromic(s string) string {
+func longestPalindrome(s string) string {
 	if len(s) == 0 {
 		return ""
 	}
