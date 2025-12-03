@@ -16,18 +16,22 @@ func test(nums []int, target int) {
 }
 
 func twoSum(nums []int, target int) []int {
-	if len(nums) < 2 {
+	if len(nums) < 1 {
 		return []int{}
 	}
-	hash := make(map[int]int)
-
-	for i, n := range nums {
-		if existingNumber, ok := hash[target-n]; ok {
-			return []int{existingNumber, i}
+	if len(nums) == 1 {
+		if nums[0] == target {
+			return nums
 		}
-
-		hash[n] = i
+		return []int{}
 	}
+	hash := make(map[int]int, len(nums))
 
+	for i, num := range nums {
+		if ix, exists := hash[target-num]; exists {
+			return []int{ix, i}
+		}
+		hash[num] = i
+	}
 	return []int{}
 }
